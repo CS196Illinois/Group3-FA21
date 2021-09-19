@@ -1,1 +1,42 @@
 Asm14 -> Research
+
+Databases —> collection of related info
+
+Databases are in table form with keys to identify each branch —> uses query to retrieve data
+
+SQL databases are tables with fixed tables and rows (relational)
+
+NoSQL has dynamic columns (horizontal scaling) but also can have data collection with graphs (nodes/edges) and JSON documents
+ SQL Types —> Oracle, MySQL, PostgreSQL
+NoSQL Types —> MongoDB and Couch DB and Amazon Neptune
+
+NoSQL has flexible data models and fast queries
+
+SQL write/read speed faster with larger data collection, NoSQL opposite with faster production
+
+
+
+
+ACID Transactions --> NoSQL not supported
+
+Atomicity; A transaction is an atomic unit of processing, should be performed in entirety or not at all
+
+Consistency preservation; Transaction should be executed from beginning to end without interference
+
+Isolation; Transaction should be executed in a manner isolated from other transactions
+
+Durability - Changes applied to database should not become lost 
+
+
+
+CAP Theorem -> For distributed databases, cannot provide more than two of the following
+
+Consistency - Every read receives the most recent write or an error
+
+Availability - Every request receives the most recent write or an error
+
+Partition tolerance - System continues to operate despite number of messages being dropped
+
+CA: Relational Databases (SQL)
+CP, AP: NonRelational Databases (NoSQL)
+
