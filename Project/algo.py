@@ -1,4 +1,4 @@
-def calculateScore(responses):
+def calculateScore(user_id, responses):
 
     openness_score = 0
     conscientiousness_score = 0
@@ -21,5 +21,5 @@ def calculateScore(responses):
         elif (dimension_id == 5):
             neuroticism_score += score
     
-    return [openness_score, conscientiousness_score, extroversion_score, agreeableness_score, neuroticism_score]
+    return [user_id, openness_score, conscientiousness_score, extroversion_score, agreeableness_score, neuroticism_score]
 
