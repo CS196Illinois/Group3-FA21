@@ -8,8 +8,18 @@ def calculateScore(responses):
 
     for n in range(0, len(responses)):
         tuple = responses[n]
-        dimension = tuple[0]
-    return sum
-
-print(calculateScore([(1, 2), (2, 4)]))
+        dimension_id = tuple[0]
+        score = tuple[1]
+        if (dimension_id == 1):
+            openness_score += score
+        elif (dimension_id == 2):
+            conscientiousness_score += score
+        elif (dimension_id == 3):
+            extroversion_score += score
+        elif (dimension_id == 4):
+            agreeableness_score += score
+        elif (dimension_id == 5):
+            neuroticism_score += score
+    
+    return [openness_score, conscientiousness_score, extroversion_score, agreeableness_score, neuroticism_score]
 
