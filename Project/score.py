@@ -64,7 +64,3 @@ The second dimension corresponds to the metadata about the question
         Note that direction is binary: positive or negative.
 
 '''
-
-pd = 
-
-print(calculateScore(3, responses))

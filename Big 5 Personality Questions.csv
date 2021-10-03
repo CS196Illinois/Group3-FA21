@@ -1,5 +1,5 @@
 ﻿question_id,question_text,dimension_id,dimension_name,direction
-1,I am always prepared.,2,Conscientiousness,+
+1,I waste my time.,2,Conscientiousness,+
 2,I get stressed out a lot.,5,Neuroticism,+
 3,I have a rich vocabulary.,1,Openness to Experience,+
 4,I am interested in people.,4,Agreeableness,+
