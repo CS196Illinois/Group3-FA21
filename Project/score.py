@@ -2,7 +2,7 @@ import pandas
 
 def calculateScore(user_id, responses):
 
-    total_score = 20
+    total_score = 10
 
     openness_score = 0
     conscientiousness_score = 0
@@ -52,7 +52,7 @@ def calculateScore(user_id, responses):
     conscientiousness_score /= total_score
     extroversion_score /= total_score
     agreeableness_score /= total_score
-    neuroticism_score /= total_score # Needs to be tweaked to accomodate the negative scoring questions
+    neuroticism_score /= total_score
     
     return [user_id, openness_score, conscientiousness_score, extroversion_score, agreeableness_score, neuroticism_score]
 
