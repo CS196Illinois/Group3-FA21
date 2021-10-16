@@ -1,18 +1,18 @@
 ﻿question_id,question_text,dimension_id,dimension_name,direction
-1,I am always prepared.,2,Conscientiousness,+
+1,I waste my time.,2,Conscientiousness,-
 2,I get stressed out a lot.,5,Neuroticism,+
 3,I have a rich vocabulary.,1,Openness to Experience,+
-4,I am interested in people.,4,Agreeableness,+
+4,I am not interested in other people's problems.,4,Agreeableness,-
 5,I am a quieter person.,3,Extroversion,-
 6,I find it hard to grasp abstract ideas.,1,Openness to Experience,-
 7,I pay attention to details.,2,Conscientiousness,+
-8,I have a vivid imagination.,1,Openness to Experience,+
+8,I don't have a vivid imagination.,1,Openness to Experience,-
 9,I sympathize with others easily.,4,Agreeableness,+
-10,I get upset easily.,5,Neuroticism,+
+10,I don't get upset easily.,5,Neuroticism,-
 11,I prefer to talk to one or two people at a party rather than many different people.,3,Extroversion,-
-12,I am an organized person.,2,Conscientiousness,+
+12,I am disorganized.,2,Conscientiousness,-
 13,I insult people.,4,Agreeableness,-
-14,I don't like drawing attention to myself.,3,Extroversion,-
+14,I like drawing attention to myself.,3,Extroversion,+
 15,I follow a schedule.,2,Conscientiousness,+
 16,I have frequent mood swings.,5,Neuroticism,+
 17,I spend time reflecting on things.,1,Openness to Experience,+
