@@ -1,5 +1,14 @@
 import pandas
 
+
+''' Format of responses is a two dimensional list.
+The first dimension corresponds to the number of questions (will always be 20)
+The second dimension corresponds to the metadata about the question
+    Question: [dimension_id, user_score, direction]
+        Note that direction is binary: positive or negative.
+
+'''
+
 def calculateScore(user_id, responses):
 
     total_score = 10
@@ -57,10 +66,3 @@ def calculateScore(user_id, responses):
     return [user_id, openness_score, conscientiousness_score, extroversion_score, agreeableness_score, neuroticism_score]
 
 
-''' Format of responses is a two dimensional list.
-The first dimension corresponds to the number of questions (will always be 20)
-The second dimension corresponds to the metadata about the question
-    Question: [dimension_id, user_score, direction]
-        Note that direction is binary: positive or negative.
-
-'''
