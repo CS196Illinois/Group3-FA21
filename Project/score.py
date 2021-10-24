@@ -27,17 +27,35 @@ def calculateScore(user_id, responses):
         user_score = question[2]
         direction = question[3]
 
+        positive = False
+        if (direction == "+"):
+            positive = True
 
         if (dimension_id == 1):
-            openness_score += user_score
+            if (positive):
+                openness_score += user_score
+            else:
+                openness_score -= user_score
         elif (dimension_id == 2):
-            conscientiousness_score += user_score
+            if (positive):
+                conscientiousness_score += user_score
+            else:
+                conscientiousness_score -= user_score
         elif (dimension_id == 3):
-            extroversion_score += user_score
+            if (positive):
+                extroversion_score += user_score
+            else:
+                extroversion_score -= user_score
         elif (dimension_id == 4):
-            agreeableness_score += user_score
+            if (positive):
+                agreeableness_score += user_score
+            else:
+                agreeableness_score -= user_score
         elif (dimension_id == 5):
-            neuroticism_score -= user_score
+            if (positive):
+                neuroticism_score += user_score
+            else:
+                neuroticism_score -= user_score
 
     openness_score /= total_score
     conscientiousness_score /= total_score
