@@ -3,8 +3,7 @@ CREATE TABLE `question_text` (
   `question` varchar(255) NOT NULL,
   `dimension_id` tinyint(1) DEFAULT NULL,
   `dimension_name` varchar(22) DEFAULT NULL,
-  `direction` char(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 CREATE TABLE `results` (
   `openness` double(9,8) NOT NULL,
@@ -18,11 +17,11 @@ CREATE TABLE `results` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 CREATE TABLE `users` (
+  `user_id` int NOT NULL AUTO_INCREMENT,
   `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `dob` date NOT NULL,
-  `user_id` int NOT NULL AUTO_INCREMENT,
   `last_active` datetime DEFAULT NULL,
   PRIMARY KEY (`user_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
