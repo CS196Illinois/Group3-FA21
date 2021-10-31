@@ -1,12 +1,13 @@
 import numpy as np
 
-# Final Algorithm
 ''' 
   Matching Algorithm
   Input: user_id_0, [user_id_1, ..., user_id_n]
   Output: [user_id_1, ..., user_id_n], ORDER BY closeness of match ASC.
 '''
-
+def match(user_id_0, users):
+  return rank(angle(user_id_0, users), distance(user_id_0, users))
+  
 '''
   Computes the distance between vectors user_id_0 and user_id_1, ..., user_id_n
 '''
