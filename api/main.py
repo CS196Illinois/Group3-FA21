@@ -32,6 +32,11 @@ class User(BaseModel):
     password: str
     email: str
 
+class Question(BaseModel):
+    question_id: int
+    question_text: str
+    dimension_id: int
+
 @app.get("/api/v1", tags=['Test Routes'])
 def read_root():
     return {"App is active and running!"}
@@ -48,7 +53,7 @@ def read_users(user_id: Optional[int] = None, username: Optional[str] = None, em
         return db.get_users()
 
 
-@app.post('/api/v1/users', tags=['User Route'])
+@app.post('/api/v1/users', tags=['User Routes'])
 def add_users(usr: User, user_id: Optional[int] = None, username: Optional[str] = None, email: Optional[str] = None):
     if user_id is not None:
         return db.add_user(user_id = user_id)
@@ -57,7 +62,7 @@ def add_users(usr: User, user_id: Optional[int] = None, username: Optional[str] 
     elif email is not None:
         return db.add_user(email = email)
 
-@app.put('/api/v1/users', tags=['User Route'])
+@app.put('/api/v1/users', tags=['User Routes'])
 def update_users(usr: User, user_id: Optional[int] = None, username: Optional[str] = None, email: Optional[str] = None):
     if user_id is not None:
         return db.update_user(user_id = user_id)
@@ -68,7 +73,7 @@ def update_users(usr: User, user_id: Optional[int] = None, username: Optional[st
 
 
 
-@app.delete('/api/v1/users', tags=['User Route'])
+@app.delete('/api/v1/users', tags=['User Routes'])
 def delete_users(usr: User, user_id: Optional[int] = None, username: Optional[str] = None, email: Optional[str] = None):
     if user_id is not None:
         return db.delete_user(user_id = user_id)
@@ -81,3 +86,17 @@ def delete_users(usr: User, user_id: Optional[int] = None, username: Optional[st
 @app.get('/api/v1/questions', tags=['Question Routes'])
 def read_questions():
     return db.get_questions()
+
+@app.post('/api/v1/questions', tags=['Question Routes'])
+def post_questions(q: Question):
+    return db.add_questions()
+
+@app.delete('/api/v1/questions', tags=['Question Routes'])
+def delete_questions(qid: Optional[int] = None, qtxt: Optional[str] = None):
+    """
+    Pass one of these
+    """
+    if qid:
+        pass
+    elif qtxt:
+        pass
