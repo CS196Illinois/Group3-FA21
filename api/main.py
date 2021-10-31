@@ -6,6 +6,10 @@ import db
 
 tg = [
     {
+        "name": "Test Routes",
+        "description": "Routes meant for the testing and development of related services and applications"
+    },
+    {
         "name": "User Routes",
         "description": "To deal with user retrieval, sign up, updation and deletion"
     },
@@ -13,9 +17,10 @@ tg = [
         "name": "Question Routes",
         "description": "Routes dealing with the questions for the sign up process"
     },
+
     {
-        "name": "Test Routes",
-        "description": "Routes meant for the testing and development of related services and applications"
+        "name": "Ranking",
+        "description": "Routes related to rankings"
     }
 ]
 description = "The backend API for the Magic personality based friend finder application"
@@ -100,3 +105,10 @@ def delete_questions(qid: Optional[int] = None, qtxt: Optional[str] = None):
         db.delete_question(qid=qid)
     elif qtxt:
         db.delete_question(qtxt=qtxt)
+
+@app.get('/api/v1/rank', tags=['Ranking'])
+def rank():
+    """
+    Runs the ranking function against all users in the database and outputs whether it was successful.
+    """
+    return db.run_ranker()
