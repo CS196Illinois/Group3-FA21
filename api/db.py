@@ -31,9 +31,33 @@ def delete_user(user_id = None, username = None, email = None):
     """
     return True
 
-def add_user(user, user_id = None, username = None, email = None):
+def add_user(user):
     """
-    Connect to SQL server and add the user. One identification factor will be provided and the user object with all the user details will be provided.
+    Connect to SQL server and add the user.
+
+    Return True or False based on the success or failure of the operation
+    """
+    return True
+
+
+def read_questions():
+    """
+    Return a list of questions
+    """
+    return []
+
+
+def add_questions(question):
+    """
+    Connect to SQL server and add the question.
+
+    Return True or False based on the success or failure of the operation
+    """
+    return True
+
+def delete_question(qid = None, qtxt = None):
+    """
+    Connect to SQL server and delete the user. Either the question id or question text will be provided.
 
     Return True or False based on the success or failure of the operation
     """
