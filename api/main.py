@@ -47,35 +47,31 @@ def read_users(user_id: Optional[int] = None, username: Optional[str] = None, em
 @app.post('/api/v1/users', tags=['users'])
 def add_users(usr: User, user_id: Optional[int] = None, username: Optional[str] = None, email: Optional[str] = None):
     if user_id is not None:
-        return db.get_user(user_id = user_id)
+        return db.add_user(user_id = user_id)
     elif username is not None:
-        return db.get_user(username = username)
+        return db.add_user(username = username)
     elif email is not None:
-        return db.get_user(email = email)
-    else:
-        return db.get_users()
+        return db.add_user(email = email)
 
 @app.put('/api/v1/users', tags=['users'])
 def update_users(usr: User, user_id: Optional[int] = None, username: Optional[str] = None, email: Optional[str] = None):
     if user_id is not None:
-        return db.get_user(user_id = user_id)
+        return db.update_user(user_id = user_id)
     elif username is not None:
-        return db.get_user(username = username)
+        return db.update_user(username = username)
     elif email is not None:
-        return db.get_user(email = email)
-    else:
-        return db.get_users()
+        return db.update_user(email = email)
+
 
 
 @app.delete('/api/v1/users', tags=['users'])
 def delete_users(usr: User, user_id: Optional[int] = None, username: Optional[str] = None, email: Optional[str] = None):
     if user_id is not None:
-        return db.get_user(user_id = user_id)
+        return db.delete_user(user_id = user_id)
     elif username is not None:
-        return db.get_user(username = username)
+        return db.delete_user(username = username)
     elif email is not None:
-        return db.get_user(email = email)
-    else:
-        return db.get_users()
+        return db.delete_user(email = email)
 
-@app.get('/api/v1/questions', tags=['questions'])
+
+# @app.get('/api/v1/questions', tags=['questions'])
