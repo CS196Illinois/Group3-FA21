@@ -62,3 +62,10 @@ def delete_question(qid = None, qtxt = None):
     Return True or False based on the success or failure of the operation
     """
     return True
+
+def run_ranker():
+    """
+    Runs the ranking function for all the users.
+
+    Returns True or False based on the success or failure of the operation.
+    """
