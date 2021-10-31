@@ -89,7 +89,7 @@ def read_questions():
 
 @app.post('/api/v1/questions', tags=['Question Routes'])
 def post_questions(q: Question):
-    return db.add_questions()
+    return db.add_questions(question=q)
 
 @app.delete('/api/v1/questions', tags=['Question Routes'])
 def delete_questions(qid: Optional[int] = None, qtxt: Optional[str] = None):
@@ -97,6 +97,6 @@ def delete_questions(qid: Optional[int] = None, qtxt: Optional[str] = None):
     Pass one of these
     """
     if qid:
-        pass
+        db.delete_question(qid=qid)
     elif qtxt:
-        pass
+        db.delete_question(qtxt=qtxt)
