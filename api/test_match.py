@@ -21,4 +21,6 @@ people = np.array([[0.80, 0.97, 0.29, 0.91, 0.68],
                    [0.88, 0.97, 0.83, 0.71, 0.11]])
 
 sam = np.array([0.96, 0.97, 0.9, 0.83, 0.07])
-m.rank(m.angle(sam, people), m.distance(sam, people))
+# m.rank(m.angle(sam, people), m.distance(sam, people))
+
+print(m.match(sam, people))
