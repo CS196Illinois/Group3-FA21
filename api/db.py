@@ -69,3 +69,11 @@ def run_ranker():
 
     Returns True or False based on the success or failure of the operation.
     """
+
+def match_updated_users():
+    """
+    Return a list of users with last_active or last_updated dates within the last 5 minutes.
+
+    Then call the 
+    """
+    return []
