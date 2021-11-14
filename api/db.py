@@ -171,6 +171,7 @@ def run_ranker():
 
     Returns True or False based on the success or failure of the operation.
     """
+    return True
 
 
     
