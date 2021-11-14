@@ -75,10 +75,11 @@ def update_user(user, user_id = None, username = None, email = None):
 
     try:
         cursor.execute(query, (user.user_id, user.username, user.password, user.email, user.dob, user.last_active, user.last_updated, user_id, username, email))
-        mydb.commit()
     except Exception as e:
         print('Error: ', e)
         return False
+    
+    mydb.commit()
 
     return True
 
