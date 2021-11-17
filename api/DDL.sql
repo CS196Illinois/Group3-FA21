@@ -24,8 +24,7 @@ CREATE TABLE `question_text` (
   `question_id` smallint NOT NULL,
   `question_text` varchar(255) NOT NULL,
   `dimension_id` smallint NOT NULL,
-  `dimension_name` varchar(255) NOT NULL,
-  `direction` char(1) NOT NULL
+  `dimension_name` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
 
 CREATE TABLE `matches` ('df
