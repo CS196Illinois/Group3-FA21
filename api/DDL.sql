@@ -32,3 +32,8 @@ CREATE TABLE `matches` ('df
  `user_id2` int NOT NULL,
  `distance` double(9, 8) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+CREATE_TABLE `dimensions` (
+  `dimension_id`: tinyint(1) NOT NULL,
+  `dimension_name`: varchar(22) NOT NULL,
+)  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
