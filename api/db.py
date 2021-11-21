@@ -1,5 +1,6 @@
 import mysql.connector
-import match
+import numpy as np
+import match as m
 
 class User:
     def __init__(self, user_id, username, password, email, dob, last_active, last_updated):
@@ -11,8 +12,23 @@ class User:
         self.last_active = last_active
         self.last_updated = last_updated
 
-mydb = None
+class Question:
+    def __init__(self, question_id, question_text, dimension_id):
+        self.question_id = question_id
+        self.question_text = question_text
+        self.dimension_id = dimension_id
 
+class Results:
+    def __init__(self, o, c, e, a, n, user_id):
+        self.o = o
+        self.c = c
+        self.e = e
+        self.a = a
+        self.n = n
+        self.user_id = user_id
+
+
+mydb = None
 def createConnection():
     global mydb
     mydb = mysql.connector.connect(
@@ -93,6 +109,7 @@ def delete_user(user_id = None, username = None, email = None):
     global mydb
     cursor = mydb.cursor()
     query = "DELETE FROM users WHERE user_id = %s OR email = %s OR username = %s"
+    
     try:
         cursor.execute(query, (user_id, email, username))
     except Exception as e:
@@ -112,12 +129,14 @@ def add_user(user):
     createConnection()
     global mydb
     cursor = mydb.cursor()
-    query = "INSERT INTO users (user_id, username, password, email, dob, last_active) VALUES (%s, %s, %s, %s, %s, %s, %s)"
+    query = "INSERT INTO users (user_id, username, password, email, dob, last_active, last_updated) VALUES (%s, %s, %s, %s, %s, %s, %s)"
     try:
         cursor.execute(query, (user.user_id, user.username, user.password, user.email, user.dob, user.last_active, user.last_updated))
     except Exception as e:
         print("Error, ", e)
         return False
+
+    mydb.commit()
 
     return True
 
@@ -144,6 +163,18 @@ def add_questions(question):
 
     Return True or False based on the success or failure of the operation
     """
+    createConnection()
+    global mydb
+    cursor = mydb.cursor()
+    query = "INSERT INTO question_text (question_id, question, dimension_id) VALUES (%s, %s, %s)"
+    try:
+        cursor.execute(query, (question.question_id, question.question_text, question.dimension_id))
+    except Exception as e:
+        print("Error, ", e)
+        return False
+
+    mydb.commit()
+
     return True
 
 def delete_question(qid = None, qtxt = None):
@@ -156,6 +187,7 @@ def delete_question(qid = None, qtxt = None):
     global mydb
     cursor = mydb.cursor()
     query = "DELETE FROM question_text WHERE question_id = %s or question = %s"
+
     try:
         cursor.execute(query, (qid, qtxt))
     except Exception as e:
@@ -166,13 +198,45 @@ def delete_question(qid = None, qtxt = None):
 
     return True
 
+def get_results():
+    """
+    Returns a list of results objects
+    """
+    createConnection()
+    global mydb
+    cursor = mydb.cursor()
+    query = "SELECT * FROM results"
+    cursor.execute(query)
+    results = cursor.fetchall()
+    result_list = []
+    for row in results:
+        result_list.append(Results(row[0], row[1], row[2], row[3], row[4], row[5]))
+
+    return result_list
+
+
 def run_ranker():
     """
     Runs the ranking function for all the users.
 
     Returns True or False based on the success or failure of the operation.
     """
+    createConnection()
+    result_list = get_results()
+    cursor = mydb.cursor()
+    rank = []
+    for user_result in result_list:
+        user = [user_result.o, user_result.c, user_result.e, user_result.a, user_result.n]
+        scores = []
+        user_id1 = user_result.user_id
+        for row in result_list:
+            scores.append([row.o, row.c, row.e, row.a, row.n])
+            user_id2 = row.user_id
+            
+        try:
+            rank.append(m.match(np.array(user), np.array(scores)))
+        except Exception as e:
+            print("Error, ", e)
+            return False
+ 
     return True
-
-
-    
