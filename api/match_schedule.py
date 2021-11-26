@@ -1,11 +1,7 @@
-import schedule, time, db, match
+import schedule, time, db
 
-def calculate_matches(user_updates):
-    users = db.get_users()
-    matches = list(list())
-    for n in range (0, len(users)):
-        match(users[n], users)
-        # Push this data to the user
+def calculate_matches():
+    db.run_ranker()
 
 schedule.every(5).minutes.do(calculate_matches)
 
