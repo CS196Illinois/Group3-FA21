@@ -228,15 +228,32 @@ def run_ranker():
     for user_result in result_list:
         user = [user_result.o, user_result.c, user_result.e, user_result.a, user_result.n]
         scores = []
-        user_id1 = user_result.user_id
         for row in result_list:
             scores.append([row.o, row.c, row.e, row.a, row.n])
-            user_id2 = row.user_id
-            
         try:
-            rank.append(m.match(np.array(user), np.array(scores)))
+            rank.append(m.distance(np.array(user), np.array(scores)))
         except Exception as e:
-            print("Error, ", e)
+            print("Error in ranking, ", e)
             return False
- 
+                
+
+    
+    for i in range(0, len(rank)):
+        for j in range(0, len(rank[i])):
+            user_id1 = i + 1
+            user_id2 = j + 1
+            distance = float(rank[i][j])
+            query = "INSERT INTO matches (user_id1, user_id2, distance) VALUES (%s, %s, %s) ON DUPLICATE KEY UPDATE distance = %s"
+
+            try:
+                cursor.execute(query, (user_id1, user_id2, distance, distance))
+            except Exception as e:
+                print("Error, ", e)
+                return False
+                
+    mydb.commit()
     return True
+
+run_ranker()
+
+
