@@ -54,7 +54,6 @@ def get_users():
     cursor.execute(query)
     user_rows = cursor.fetchall()
     user_list = []
-
     for row in user_rows:
         user_list.append(User(row[0], row[1], row[2], row[3], row[4], row[5], row[6]))
 
@@ -96,8 +95,8 @@ def update_user(user, user_id = None, username = None, email = None):
         return False
     
     mydb.commit()
-
     return True
+
 
 def delete_user(user_id = None, username = None, email = None):
     """
@@ -117,8 +116,8 @@ def delete_user(user_id = None, username = None, email = None):
         return False
     
     mydb.commit()
-
     return True
+
 
 def add_user(user):
     """
@@ -177,6 +176,7 @@ def add_questions(question):
 
     return True
 
+
 def delete_question(qid = None, qtxt = None):
     """
     Connect to SQL server and delete the question. Either the question id or question text will be provided.
@@ -197,6 +197,7 @@ def delete_question(qid = None, qtxt = None):
     mydb.commit()
 
     return True
+
 
 def get_results():
     """
@@ -235,9 +236,6 @@ def run_ranker():
         except Exception as e:
             print("Error in ranking, ", e)
             return False
-                
-
-    
     for i in range(0, len(rank)):
         for j in range(0, len(rank[i])):
             user_id1 = i + 1
