@@ -254,6 +254,4 @@ def run_ranker():
     mydb.commit()
     return True
 
-run_ranker()
-
 
