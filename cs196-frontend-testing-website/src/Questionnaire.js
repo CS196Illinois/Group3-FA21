@@ -163,7 +163,7 @@ export default class Questionnaire extends Component {
             return (
                 <div className = 'questionnaire-end'>
                     <h1 className = 'questionnaire-end1'>
-                        You are Hot! 
+                        Quiz Completed.
                     </h1>
                     
                 </div>
@@ -176,7 +176,7 @@ export default class Questionnaire extends Component {
                 <div className = 'submit-Page'>
 
                     <div className = 'progressBar-submit'>
-                        <ProgressBar bgcolor="red" progress = {`${currentIndex * 5}`}  height = {20}/>
+                        <ProgressBar bgcolor="#A5B5BF" progress = {`${currentIndex * 5}`}  height = {20}/>
                     </div>
                     
                     <div className = 'questionCount-submit'> 

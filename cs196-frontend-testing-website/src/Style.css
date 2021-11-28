@@ -11,9 +11,18 @@ ________________________________________________________________________________
 Header Styling
 */
 
+:root {
+    --color1: #B0A1BA;
+    --color2: #A5B5BF;
+    --color3: #ABC8C7;
+    --color4: #B8E2C8;
+    --color5: #BFF0D4;
+}
+
+
 .headerLinks {
     display: flex;
-    background-color: rgb(99, 99, 99);
+    background-color: var(--color1);
 }
 
 .headerLinkList {
@@ -32,7 +41,7 @@ Header Styling
 .headerLinkList li a {
     text-decoration: none;
     text-shadow: 0.8px 0.8px #000000;
-    color: #d63434;
+    color: black;
 }
 /*
 ___________________________________________________________________________________________ 
@@ -44,17 +53,17 @@ Questionnaire Styling
     /* background-color: lightgray;
     cursor: pointer; */
 
-    background: #d11a1a;
+    background: var(--backgroundcolor);
 	letter-spacing: 1px;
-	-webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
-	-moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
-	box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+	-webkit-box-shadow: 0px 5px 40px -10px var(--color2);
+	-moz-box-shadow: 0px 5px 40px -10px var(--color2);
+	box-shadow: 5px 40px -10px var(--color2);
 	transition: all 0.4s ease 0s;
     cursor: pointer;
 }
 
 .selected {
-    background-color: #d11a1a;
+    background-color: var(--color3);
 }
 
 .questionnaire-main {
@@ -118,7 +127,7 @@ Questionnaire Styling
 	color: #fff !important;
 	text-transform: uppercase;
 	text-decoration: none;
-	background: #ed3330;
+	background: var(--color2);
 	padding: 20px;
 	border-radius: 5px;
 	display: inline-block;
@@ -129,9 +138,9 @@ Questionnaire Styling
 .button-next:hover {
 	background: #434343;
 	letter-spacing: 1px;
-	-webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
-	-moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
-	box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+	-webkit-box-shadow: 0px 5px 40px -10px var(--color2);
+	-moz-box-shadow: 0px 5px 40px -10px var(--color2);
+	box-shadow: 5px 40px -10px var(--color2);
 	transition: all 0.4s ease 0s;
     cursor: pointer;
 }
@@ -141,11 +150,11 @@ Questionnaire Styling
     /* background-color: lightgray;
     cursor: pointer; */
 
-    background: #d11a1a;
+    background: var(--color3);
 	letter-spacing: 1px;
-	-webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
-	-moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
-	box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+	-webkit-box-shadow: 0px 5px 40px -10px var(--color2);
+	-moz-box-shadow: 0px 5px 40px -10px var(--color2);
+	box-shadow: 5px 40px -10px var(--color2);
 	transition: all 0.4s ease 0s;
     cursor: pointer;
 }
@@ -165,7 +174,7 @@ Questionnaire Styling
 
 .button-submit:before {
     content: '';
-    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    background: linear-gradient(45deg, var(--color1), var(--color2), var(--color3), var(--color4), var(--color5));
     position: absolute;
     top: -2px;
     left:-2px;
@@ -181,7 +190,7 @@ Questionnaire Styling
 }
 
 .button-submit:active {
-    color: rgb(214, 35, 35)
+    color: var(--color1);
 }
 
 .button-submit:active:after {
@@ -232,7 +241,7 @@ Footer Styling
     /* negative value of footer height */
     height: 2.5rem;
     clear: both;
-    background-color: red;
+    background-color: var(--color1);
 
 }
 /*
