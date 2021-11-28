@@ -215,6 +215,43 @@ def get_results():
 
     return result_list
 
+def get_result(user_id = None):
+    """
+    Connect to SQL server and return the user result. user_id will be passed in.
+
+    Return the result object.
+    """
+    createConnection()
+    global mydb
+    cursor = mydb.cursor()
+    query = "SELECT * FROM results WHERE user_id = %s"
+    cursor.execute(query, (user_id))
+    result_row = cursor.fetchall()
+    result_object = Results(result_row[0][0], result_row[0][1], result_row[0][2], result_row[0][3], result_row[0][4], result_row[0][5])
+
+    return result_object
+
+
+
+def add_result(results):
+    """
+    Connect to SQL server and add a user result given a Results object.
+
+    Return True or False based on the success or failure of the operation
+    """
+    createConnection()
+    global mydb
+    cursor = mydb.cursor()
+    query = "INSERT INTO results (openness, conscientiousness, extraversion, agreeableness, neuroticism, user_id) VALUES (%s, %s, %s, %s, %s, %s)"
+    
+    try:
+        cursor.execute(query, (results.o, results.c, results.e, results.a, results.n, results.user_id))
+    except Exception as e:
+        print("Error, ", e)
+        return False
+    
+    return True
+        
 
 def run_ranker():
     """
