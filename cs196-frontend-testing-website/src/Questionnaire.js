@@ -216,7 +216,7 @@ export default class Questionnaire extends Component {
             <div className = 'questionnaire-main'>
 
                 <div className = 'progressBar'>
-                    <ProgressBar bgcolor="red" progress = {`${currentIndex * 5}`}  height = {20}/>
+                    <ProgressBar bgcolor="#A5B5BF" progress = {`${currentIndex * 5}`}  height = {20}/>
                 </div>
                  
                 <div className = 'questionCount'> 
