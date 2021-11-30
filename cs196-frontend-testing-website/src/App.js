@@ -5,6 +5,7 @@ import About from "./About";
 import Header from "./Header";
 import Questionnaire from "./Questionnaire";
 import Footer from "./Footer";
+import Profile from "./Profile";
 //import ProgressBar from "ProgressBar";
 import {
     BrowserRouter as Router,
@@ -22,7 +23,9 @@ class App extends Component {
                         <Route exact path = "/" component = {Home} />
                         <Route path = "/about" component = {About} />
                         <Route path = "/contact" component = {Contact} />
+                        <Route path = "/profile" component = {Profile} />
                         <Route path = "/questionnaire" component = {Questionnaire} />
+
                 </div> 
 
                 <Footer/>
