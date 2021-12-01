@@ -4,6 +4,7 @@ import Home from "./Home";
 import About from "./About";
 import Header from "./Header";
 import Questionnaire from "./Questionnaire";
+import UserCards from "./UserCards";
 
 
 export default class Contact extends Component {
@@ -11,7 +12,8 @@ export default class Contact extends Component {
 
         return (
             <div className = 'home-temp-1'> 
-                <h1 className = 'contact-title'> Contact Screen </h1>
+                <h1 className = 'profile-title'> Profile </h1>
+                <UserCards> </UserCards>
             </div>
         )
     }

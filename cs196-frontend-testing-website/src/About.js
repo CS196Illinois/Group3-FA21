@@ -10,7 +10,7 @@ export default class About extends Component {
     render() {
 
         return (
-            <h1> About Screen </h1>
+            <h1 className = 'about-title'> About Screen </h1>
         )
     }
 }
