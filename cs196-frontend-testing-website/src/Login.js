@@ -44,7 +44,7 @@ class Login extends Component {
             <div>        
                 <div className="Form">
                 <div className="Form__Aside"> 
-                        <img className = "hat" src = "/images/magichat.png" alt =""/>     
+                        <img className = "hat" src = "/images/magic-icon-logo.png" alt =""/>     
                     </div>
                     
                     <div className="Form__Form">

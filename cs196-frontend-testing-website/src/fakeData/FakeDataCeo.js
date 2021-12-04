@@ -1,6 +1,11 @@
 import React, { useState, useMemo, useRef } from 'react'
 // import TinderCard from '../react-tinder-card/index'
 import TinderCard from 'react-tinder-card'
+import {
+  BrowserRouter as Router,
+  Route,
+  Link 
+} from 'react-router-dom'
 
 const db = [
   {
@@ -109,32 +114,39 @@ function MoveData () {
       />
 
       <div className = 'matches-title'>
-        <h1> Your Matches </h1>
-      </div>  
+        <h1> YOU MATCHED WITH: </h1>
+      </div>
 
-      <div className='cardContainer'>
-        {db.map((character, index) => (
-          <TinderCard
-            ref = {childRefs[index]}
-            className = 'swipe'
-            key = {character.name}
-            onSwipe = {(dir) => swiped(dir, character.name, index)}
-            onCardLeftScreen = {() => outOfFrame(character.name, index)}
-          >
-            <div
-              style={{ backgroundImage: 'url(' + character.url + ')' }}
-              className='card'
+      <div className = 'cardContainer-parent'>
+        <div className='cardContainer'>
+          {db.map((character, index) => (
+            <TinderCard
+              ref = {childRefs[index]}
+              className = 'swipe'
+              key = {character.name}
+              onSwipe = {(dir) => swiped(dir, character.name, index)}
+              onCardLeftScreen = {() => outOfFrame(character.name, index)}
             >
-              <h3>{character.name}</h3>
-            </div>
-          </TinderCard>
-        ))}
+              <div
+                style={{ backgroundImage: 'url(' + character.url + ')' }}
+                className='card'
+              >
+                <h3>{character.name}</h3>
+              </div>
+
+              <Link to = {`/user/${ character.name }`}>
+                <button className = 'goToProfile' style = {{ backgroundColor: !canSwipe && '#c3c4d3' }}> Go to profile! </button> 
+              </Link>
+
+            </TinderCard>
+          ))}
+        </div>
       </div>
 
       <div className='buttons'>
         <button style={{ backgroundColor: !canSwipe && '#c3c4d3' }} onClick={() => swipe('left')}>Swipe left!</button>
-        <button style={{ backgroundColor: !canGoBack && '#c3c4d3' }} onClick={() => goBack()}> Undo swipe (testing?) </button>
         <button style={{ backgroundColor: !canSwipe && '#c3c4d3' }} onClick={() => swipe('right')}>Swipe right!</button>
+        <button style={{ backgroundColor: !canGoBack && '#c3c4d3' }} onClick={() => goBack()}> Undo swipe (testing) </button>
       </div>
 
       {lastDirection ? (
