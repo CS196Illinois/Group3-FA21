@@ -14,7 +14,7 @@ export default class Header extends Component {
 
         return (
             <div className = "headerLinks">
-                <img className = "logo" src = "/images/magic-icon-logo.png" alt =""/>     
+                <img className = "logo" src = "/images/magichat.png" alt =""/>     
 
                 <ul className = "headerLinkList">
                     <li> <Link to="/"> Home </Link> </li>                        
