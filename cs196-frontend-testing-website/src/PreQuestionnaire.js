@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import './Style.css';
 import {
     BrowserRouter as Router,
     Route,
@@ -8,16 +7,15 @@ import {
 
 
 
-export default class Home extends Component {
+export default class PreQuestionnaire extends Component {
     render() {
-            
         return (
             <div className = 'home-Buttons'>
-                <h1> home screen </h1>
+                <h1> pre-questionnaire screen </h1>
                 <div className = 'signup-home'> 
-                    <Link to = "/signup">
+                    <Link to = "/questionnaire">
                         <button className = 'signup-Butt' type = "button">
-                            Let's Get Started!
+                            Go to Questionnaire
                         </button>
                     </Link>
                 </div>
@@ -25,5 +23,3 @@ export default class Home extends Component {
         )
     }
 }
-
-

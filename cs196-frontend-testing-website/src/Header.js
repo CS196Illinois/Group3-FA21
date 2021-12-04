@@ -1,20 +1,15 @@
 import React, { Component } from "react";
-import App from "./App";
-import Home from "./Home";
-import Contact from "./Contact";
-import About from "./About";    
-import Questionnaire from "./Questionnaire";
 import './Style.css';
 import {
     BrowserRouter as Router,
     Route,
     Link 
 } from 'react-router-dom'
-
-
-
+import 'react-sticky-header/styles.css';
+import StickyHeader from 'react-sticky-header';
 
 export default class Header extends Component {
+
     render() {
 
         return (
@@ -25,10 +20,14 @@ export default class Header extends Component {
                     <li> <Link to="/"> Home </Link> </li>                        
                     <li> <Link to="/about"> About </Link> </li>
                     <li> <Link to="/contact"> Contact </Link> </li>
+                    <li> <Link to="/signup"> SignUp </Link> </li>
+                    <li> <Link to="/login"> Login </Link> </li>
+                    <li> <Link to="/matches"> Matches </Link> </li>
+                    <li> <Link to="/prequestionnaire"> Pre-Questionnaire </Link> </li>
                     <li> <Link to="/questionnaire"> Questionnaire </Link> </li>
                     <li> <Link to="/user"> Temporary User Link</Link></li>
                 </ul>
             </div>    
         )
     }
-}
+} 

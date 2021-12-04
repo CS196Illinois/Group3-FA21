@@ -23,6 +23,11 @@ Header Styling
 .headerLinks {
     display: flex;
     background-color: var(--color1);
+    overflow: hidden;
+    background-color: #B0A1BA;
+    position: fixed; 
+    top: 0; 
+    width: 100%; 
 }
 
 .headerLinkList {
@@ -32,6 +37,12 @@ Header Styling
     padding-right: 20px;
     font-size: medium; 
     /* float: right; */
+    float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
 }
 
 .headerLinkList li {
@@ -233,22 +244,285 @@ Questionnaire Styling
 
 /*
 ___________________________________________________________________________________________ 
-Footer Styling
-*/
-.footer {
-    position: relative;
-    margin-top: -.5rem;
-    /* negative value of footer height */
-    height: 2.5rem;
-    clear: both;
-
-}
-/*
-___________________________________________________________________________________________ 
 Logo Styling
 */
 .logo {
     height: 60px;
+}
+/*
+___________________________________________________________________________________________ 
+Profile 
+*/
+
+.profile-title {
+    
+    padding-bottom: 100rem
+}
+
+
+/*
+___________________________________________________________________________________________ 
+About 
+*/
+
+.about-title {
+    
+    padding-bottom: 100rem;
+}
+
+/*
+___________________________________________________________________________________________ 
+Contact 
+*/
+
+.contact-title {
+    
+    padding-bottom: 100rem;
+}
+
+/*
+___________________________________________________________________________________________ 
+UserCards 
+*/
+
+.usercard-space-one {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    min-height: 100vh;
+    overflow: hidden;
+    background: linear-gradient(#BFF0D4, #B0A1BA);
+  }
+  
+  .usercard-space-one>div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .usercard--space-horizontal {
+    flex-direction: row !important;
+  }
+  
+  .usercard--space-horizontal>* {
+    margin: 5px;
+  }
+
+  .cardContainer {
+    padding-top: 5rem;
+    width: 90vw;
+    max-width: 260px;
+    height: 300px;
+  }
+  
+  .card {
+    position: relative;
+    background-color: #fff;
+    width: 80vw;
+    max-width: 260px;
+    height: 300px;
+    box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.30);
+    border-radius: 20px;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .swipe {
+    position: absolute;
+  }
+  
+  .cardContent {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .card h3 {
+    position: absolute;
+    bottom: 0;
+    margin: 10px;
+    color: #fff;
+  }
+  
+  .infoText {
+    width: 100%;
+    height: 28px;
+    justify-content: center;
+    display: flex;
+    color: #fff;
+    animation-name: popup;
+    animation-duration: 800ms;
+  }
+  
+  .buttons {
+    margin: 20px;
+    display: flex;
+  }
+  
+  .buttons button {
+    flex-shrink: 0;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    background-color: #9198e5;
+    transition: 200ms;
+    margin: 0 10px;
+    font-weight: bolder;
+    width: 160px;
+    box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.10);
+  }
+  
+  .buttons button:hover {
+    transform: scale(1.05);
+  }
+  
+  @keyframes popup {
+    0%   { transform: scale(1,1) }
+    10%  { transform: scale(1.1,1.1) }
+    30%  { transform: scale(.9,.9) }
+    50%  { transform: scale(1,1) }
+    57%  { transform: scale(1,1) }
+    64%  { transform: scale(1,1) }
+    100% { transform: scale(1,1) }
+  }
+
+  .matches-titles {
+    padding-bottom: 100;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+  }
+
+
+/*
+___________________________________________________________________________________________ 
+Cool Buttons 
+*/
+
+.coolButtons {
+    position: fixed;
+    bottom: 10vh;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.coolButtons .MuiIconButton-root {
+    background-color: white;
+    box-shadow: 0px 10px 53px 0px rgba(0,0,0,0.3) !important;
+}
+
+.coolButtons__repeat {
+    padding: 3vw !important;
+    color: #f5b748 !important;
+}
+.coolButtons__left {
+    padding: 3vw !important;
+    color: #ec5e6f !important;
+}
+.coolButtons__star {
+    padding: 3vw !important;
+    color: #62b4f9 !important;
+}
+.coolButtons__right {
+    padding: 3vw !important;
+    color: #76e2b3 !important;
+}
+
+.coolButtons__lightning {
+    padding: 3vw !important;
+    color: #915dd1 !important;
+}
+
+/*
+___________________________________________________________________________________________ 
+Chat 
+*/
+
+.chat {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    height: 70px;
+    border-bottom: 1px solid #fafafa;
+}
+a {
+    text-decoration: none; /* remove underline */
+    color: inherit;
+}
+.chat__details {
+    flex: 1;
+}
+
+.chat__details > p {
+    color: gray;
+}
+
+.chat__image {
+    margin-right: 20px;
+}
+.chat__timestamp {
+    color: gray;
+}
+
+.chat {
+    font-size: medium;
+}
+
+.chat__details > h2 {
+    font-size: larger;
+}
+
+/*
+___________________________________________________________________________________________ 
+Chat Page
+*/
+
+.chatPage__message{
+    display: flex;
+    align-items: center;
+    padding: 20px;
+}
+
+.chatPage__paragraph {
+    margin-left: 10px;
+    background-color: lightgray;
+    padding: 15px;
+    border-radius: 20px;
+}
+
+.chatPage__timpstamp {
+    text-align: center;
+    padding: 20px;
+    color: gray;
+}
+
+.chatPage__paragraphUser {
+    margin-left: auto;
+    background-color: #29b3cd;
+    padding: 15px;
+    border-radius: 20px;
+    color: white; 
+}
+
+.chatPage__input {
+    display: flex;
+    padding: 5px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    border-top: 1px solid lightgray;
+}
+
+.chatPage__inputField {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    outline: none;
 }
 
 /*
@@ -271,4 +545,305 @@ Testing
 .temp-API {
     color: #000000e8;
 }
+
+/* 
+___________________________________________________________________________________________ 
+Home Page buttons 
+ */
+
+ .home-Button {
+    height: 200px;
+    position: relative;
+}
+.signup-home {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+.signup-Butt {
+    width: 220px;
+    height: 50px;
+    border: none;
+    outline: none;
+    color: rgb(0, 0, 0);
+    background: rgb(150, 151, 236);
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+}
+.signup-Butt:before {
+    content: '';
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    position: absolute;
+    top: -2px;
+    left:-2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+}
+.signup-Butt:active {
+    color: rgb(150, 151, 236);
+}
+
+.signup-Butt:active:after {
+    background: transparent;
+}
+
+.signup-Butt:hover:before {
+    opacity: 1;
+}
+
+.signup-Butt:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgb(150, 151, 236);;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+@keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+}
+
+.login-home {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 65%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+.login-Butt {
+    width: 220px;
+    height: 50px;
+    border: none;
+    outline: none;
+    color: rgb(0, 0, 0);
+    background:rgb(150, 151, 236);;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+}
+.login-Butt:before {
+    content: '';
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    position: absolute;
+    top: -2px;
+    left:-2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+}
+.login-Butt:active {
+    color: rgb(150, 151, 236);
+}
+.login-Butt:active:after {
+    background: transparent;
+}
+.login-Butt:hover:before {
+    opacity: 1;
+}
+.login-Butt:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgb(150, 151, 236);;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+@keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+}
+
+/* 
+___________________________________________________________________________________________ 
+ Login/Sign Up
+ */
+
+ .FormCenter {
+    margin-bottom: 100px;
+  }
+  
+  .FormTitle {
+    color: #707C8B;
+    font-weight: 300;
+    margin-bottom: 50px;
+  }
+  
+  .FormTitle__Link {
+    color: #707C8B;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1.7em;
+    margin: 0 10px;
+    padding-bottom: 5px;
+  }
+  
+  .FormTitle__Link:first-child {
+    margin-left: 0;
+  }
+  
+  .FormTitle__Link--Active {
+    color: white;
+    border-bottom: 1px solid #BFF0D4;
+  }
+  
+  .FormField {
+    margin-bottom: 40px;
+  }
+  
+  .FormField__Label {
+    display: block;
+    text-transform: uppercase;
+    font-size: .9em;
+    color: white;
+  }
+  .FormField__Input {
+    width: 85%;
+    background-color: transparent;
+    border: none;
+    color: white;
+    outline: none;
+    border-bottom: 1px solid #BFF0D4;
+    font-size: 1em;
+    font-weight: 300;
+    padding-bottom: 10px;
+    margin-top: 10px;
+  }
+  
+  .FormField__Input::placeholder {
+    color: #616E7F;
+  }
+  
+  .FormField__Button {
+    background-color: #52C4B9;
+    color: white;
+    border: none;
+    outline: none;
+    border-radius: 25px;
+    padding: 15px 70px;
+    font-size: .8em;
+    font-weight: 500;
+  }
+  
+  .FormField__Link {
+    color: #66707D;
+    text-decoration: none;
+    display: inline-block;
+    border-bottom: 1.5px solid #225E62;
+    padding-bottom: 5px;
+  }
+  
+  .FormField__CheckboxLabel {
+    color: #646F7D;
+    font-size: .9em;
+  }
+  
+  .FormField__Checkbox {
+    position: relative;
+    top: 1.5px;
+  }
+  
+  .FormField__TermsLink {
+    color: white;
+    border-bottom: 1px solid #199087;
+    text-decoration: none;
+    display: inline-block;
+    padding-bottom: 2px;
+    margin-left: 5px;
+  }
+
+/* 
+___________________________________________________________________________________________ 
+ Login/Form Core
+ */
+ .Form {
+    height: 100vh;
+    display: flex;
+    color: white;
+  }
+  
+  .Form__Aside {
+    width: 50%;
+    background-color: #ffffff;
+    
+  }
+  
+  .Form__Form {
+    width: 50%;
+    background-color: #A5B5BF;;
+    padding: 25px 40px;
+    overflow: auto;
+  }
+  
+  .PageSwitcher {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 10%;
+  }
+  
+  .PageSwitcher__Item {
+    background-color: #4C5D72;
+    color: #9DA6B1;
+    padding: 10px 25px;
+    cursor: pointer;
+    font-size: .9em;
+    border: none;
+    outline: none;
+    display: inline-block;
+    text-decoration: none;
+  }
+  
+  .PageSwitcher__Item--Active {
+    background-color: #5ED0C0;
+    color: white;
+  }
+  
+  .PageSwitcher__Item:first-child {
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+  }
+  .PageSwitcher__Item:last-child {
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+  }
+
+  .hat {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 25%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    padding-bottom: 2.5rem;
+  }
+  
+
 
