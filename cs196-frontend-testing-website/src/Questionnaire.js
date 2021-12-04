@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import { QuestionData } from "./QuestionData";
-import App from "./App";
-import Home from "./Home";
-import Contact from "./Contact";
-import Header from "./Header";
-import About from "./About";
 import ProgressBar from "./ProgressBar";
 import './Style.css';
+import {
+    BrowserRouter as Router,
+    Route,
+    Link
+} from 'react-router-dom'
 
 export default class Questionnaire extends Component {
 
@@ -162,10 +162,14 @@ export default class Questionnaire extends Component {
         if (quizEnd) {
             return (
                 <div className = 'questionnaire-end'>
-                    <h1 className = 'questionnaire-end1'>
-                        Quiz Completed.
-                    </h1>
+                    <h1> post-questionnaire screen </h1>
                     
+                    <div className = 'questionnaire-end1'>
+                        <Link to = "/matches">
+                            <button className = 'signup-Butt' type = "button"> See Matches </button> 
+                        </Link>
+                    </div>
+                          
                 </div>
             )
         }
@@ -243,7 +247,6 @@ export default class Questionnaire extends Component {
                 <div className = 'next'>
                     {currentIndex < QuestionData.length - 1 && 
                     <button className = 'button-next' disabled = {this.state.disabled} onClick = {this.nextQuestionHandler}>
-                        
                         Next Question
                     </button> }
                 </div>

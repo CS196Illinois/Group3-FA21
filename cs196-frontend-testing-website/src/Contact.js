@@ -1,9 +1,5 @@
 import React, { Component } from "react";
-import App from "./App";
-import Home from "./Home";
-import About from "./About";
-import Header from "./Header";
-import Questionnaire from "./Questionnaire";
+
 
 
 export default class Contact extends Component {
