@@ -30,30 +30,96 @@ Header Styling
     width: 100%; 
 }
 
-.headerLinkList {
-    list-style-type: none;
-    margin-left: auto;
-    padding: 15px 0;
-    padding-right: 20px;
-    font-size: medium; 
-    /* float: right; */
-    float: left;
-  display: block;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
+.header-links {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+
 }
 
-.headerLinkList li {
-    display: inline-block; 
-    margin-inline: 15px;
+.header-links-home {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+
 }
-.headerLinkList li a {
-    text-decoration: none;
-    text-shadow: 0.8px 0.8px #000000;
-    color: black;
+
+.logo {
+  height: 60px;
+  padding-bottom: 0%;
+  float: right;
 }
+
+
+.logo-home-image {
+  height: 60px;
+  position: absolute;
+  top: -30px;
+  right: -1180px;
+ }
+
+
+/*
+___________________________________________________________________________________________ 
+Cool Header Styling
+*/
+* {
+  box-sizing: border-box;
+}
+
+.top-preview {
+  margin: 0;
+  padding-top: 250px;
+}
+.cool-header {
+  height: 250px;
+  padding-top: 50px;
+  background: #B0A1BA;
+}
+.logo-cool-header {
+  width: 500px;
+  height: auto;
+  position: absolute;
+  top: 10%;
+  left: 35%;
+}
+.main-nav,
+.main-temp {
+  position: relative;
+}
+.main-nav {
+  background: #fff;
+  height: 80px;
+  z-index: 200;
+  margin-bottom: -80px;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.4);
+}
+.main-nav a {
+  text-decoration: none;
+  color: #B0A1BA;
+  font-size: 1rem;
+  padding-left: 10px;
+  
+}
+
+.cool-header,
+.main-nav-scrolled {
+  position: fixed;
+  width: 100%;
+  top: 0;
+}
+.main-temp {
+  background: #fdfdf1;
+  padding: 110px 50px 50px;
+  column-count: 2;
+  column-gap: 20px;
+  padding-bottom: 75rem;
+}
+
 /*
 ___________________________________________________________________________________________ 
 Questionnaire Styling
@@ -65,11 +131,11 @@ Questionnaire Styling
     cursor: pointer; */
 
     background: var(--backgroundcolor);
-	letter-spacing: 1px;
-	-webkit-box-shadow: 0px 5px 40px -10px var(--color2);
-	-moz-box-shadow: 0px 5px 40px -10px var(--color2);
-	box-shadow: 5px 40px -10px var(--color2);
-	transition: all 0.4s ease 0s;
+    letter-spacing: 1px;
+    -webkit-box-shadow: 0px 5px 40px -10px var(--color2);
+    -moz-box-shadow: 0px 5px 40px -10px var(--color2);
+    box-shadow: 5px 40px -10px var(--color2);
+    transition: all 0.4s ease 0s;
     cursor: pointer;
 }
 
@@ -81,6 +147,8 @@ Questionnaire Styling
     text-align: center;
     margin-bottom: 10px;
     padding-bottom: 2.5rem;
+    margin-top: 8rem;
+    background-color: #fdfdf1;
 }
 
 .questionSection {
@@ -101,6 +169,7 @@ Questionnaire Styling
 .submit-Page {
     text-align: center;
     margin-bottom: 10px;
+    margin-top: 8rem;
 }
 
 .questionSection-submit {
@@ -241,20 +310,28 @@ Questionnaire Styling
     padding-bottom: 2.5rem;
 }
 
+.preQuestionnaire-page {
+  padding-bottom: 100rem;
+  background-color: #fdfdf1;
+}
+
+.progressBar {
+  background-color: #fdfdf1;
+}
+
+
 /*
 ___________________________________________________________________________________________ 
-Logo Styling
+
+Styling
 */
-.logo {
-    height: 60px;
-}
+
 /*
 ___________________________________________________________________________________________ 
 Profile 
 */
 
 .profile-title {
-    
     padding-bottom: 100rem
 }
 
@@ -264,26 +341,33 @@ ________________________________________________________________________________
 About 
 */
 
-.about-title {
-    
-    padding-bottom: 100rem;
+.about-page{
+   background-color: #fdfdf1;
+   padding-bottom: 100rem;
+
 }
+
 
 /*
 ___________________________________________________________________________________________ 
 Contact 
 */
-
+.contact-page {
+  background-color: #fdfdf1;
+}
 .contact-title {
     
     padding-bottom: 100rem;
 }
 
+
 /*
 ___________________________________________________________________________________________ 
 UserCards 
 */
-
+.matches-title {
+  margin-top: 10rem;
+}
 .usercard-space-one {
     text-align: center;
     display: flex;
@@ -310,7 +394,7 @@ UserCards
   }
 
   .cardContainer {
-    padding-top: 5rem;
+    padding-top: 3rem;
     width: 90vw;
     max-width: 260px;
     height: 300px;
@@ -318,26 +402,12 @@ UserCards
   
   .card {
     position: relative;
-<<<<<<< HEAD
-    margin-top: -.5rem;
-    /* negative value of footer height */
-    height: 2.5rem;
-    clear: both;
-    background-color: rgb(99, 99, 99);
-}
-
-.placeholder-footer {
-    margin: 0;
-    position: absolute;
     top: 50%;
-    left: 50%;
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-=======
+    right: 17%;
     background-color: #fff;
-    width: 80vw;
-    max-width: 260px;
-    height: 300px;
+    width: 100vw;
+    max-width: 400px;
+    height: 600px;
     box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.30);
     border-radius: 20px;
     background-size: cover;
@@ -368,10 +438,11 @@ UserCards
     color: #fff;
     animation-name: popup;
     animation-duration: 800ms;
+    padding-bottom: 10rem;
   }
   
   .buttons {
-    margin: 20px;
+    margin-top: 25rem;
     display: flex;
   }
   
@@ -404,200 +475,15 @@ UserCards
     100% { transform: scale(1,1) }
   }
 
-  .matches-titles {
+
+
+  .character-age {
     padding-bottom: 100;
     position: absolute;
     top: 100%;
-    left: 50%;
+    left: 85%;
   }
 
-
-/*
-___________________________________________________________________________________________ 
-Cool Buttons 
-*/
-
-.coolButtons {
-    position: fixed;
-    bottom: 10vh;
-    width: 100%;
-    display: flex;
-    justify-content: space-evenly;
-}
-
-.coolButtons .MuiIconButton-root {
-    background-color: white;
-    box-shadow: 0px 10px 53px 0px rgba(0,0,0,0.3) !important;
-}
-
-.coolButtons__repeat {
-    padding: 3vw !important;
-    color: #f5b748 !important;
-}
-.coolButtons__left {
-    padding: 3vw !important;
-    color: #ec5e6f !important;
-}
-.coolButtons__star {
-    padding: 3vw !important;
-    color: #62b4f9 !important;
-}
-.coolButtons__right {
-    padding: 3vw !important;
-    color: #76e2b3 !important;
-}
-
-.coolButtons__lightning {
-    padding: 3vw !important;
-    color: #915dd1 !important;
->>>>>>> feat/front-end-Sprint5-v1
-}
-
-/*
-___________________________________________________________________________________________ 
-Chat 
-*/
-
-.chat {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 20px;
-    height: 70px;
-    border-bottom: 1px solid #fafafa;
-}
-a {
-    text-decoration: none; /* remove underline */
-    color: inherit;
-}
-.chat__details {
-    flex: 1;
-}
-
-.chat__details > p {
-    color: gray;
-}
-
-.chat__image {
-    margin-right: 20px;
-}
-.chat__timestamp {
-    color: gray;
-}
-
-.chat {
-    font-size: medium;
-}
-
-.chat__details > h2 {
-    font-size: larger;
-}
-
-/*
-___________________________________________________________________________________________ 
-Chat Page
-*/
-
-.chatPage__message{
-    display: flex;
-    align-items: center;
-    padding: 20px;
-}
-
-.chatPage__paragraph {
-    margin-left: 10px;
-    background-color: lightgray;
-    padding: 15px;
-    border-radius: 20px;
-}
-
-.chatPage__timpstamp {
-    text-align: center;
-    padding: 20px;
-    color: gray;
-}
-
-.chatPage__paragraphUser {
-    margin-left: auto;
-    background-color: #29b3cd;
-    padding: 15px;
-    border-radius: 20px;
-    color: white; 
-}
-
-.chatPage__input {
-    display: flex;
-    padding: 5px;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    border-top: 1px solid lightgray;
-}
-
-.chatPage__inputField {
-    flex: 1;
-    padding: 10px;
-    border: none;
-    outline: none;
-}
-/*
-___________________________________________________________________________________________ 
-Profile 
-*/
-
-.profile-title {
-    
-    padding-bottom: 100rem
-}
-
-
-/*
-___________________________________________________________________________________________ 
-About 
-*/
-
-.about-title {
-    
-    padding-bottom: 100rem;
-}
-
-/*
-___________________________________________________________________________________________ 
-Contact 
-*/
-
-.contact-title {
-    
-    padding-bottom: 100rem;
-}
-
-/*
-___________________________________________________________________________________________ 
-UserCards 
-*/
-
-.card {
-    position: relative;
-    width: 600px;
-    padding: 20px;
-    max-width: 85vw;
-    height: 50vh;
-    border-radius: 20px;
-    background-size: cover;
-    background-position: center;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-}
-
-.card > h3 {
-    position: absolute;
-    bottom: 10px; 
-    color: white;
-}
-.cardContainer {
-    display: flex;
-    justify-content: center;
-    margin-top: 5vh;
-}
 
 /*
 ___________________________________________________________________________________________ 
@@ -945,8 +831,8 @@ ________________________________________________________________________________
   }
   
   .FormField__Button {
-    background-color: #52C4B9;
-    color: white;
+    background-color: #BFF0D4;
+    color: #616E7F;
     border: none;
     outline: none;
     border-radius: 25px;
@@ -989,18 +875,17 @@ ________________________________________________________________________________
  .Form {
     height: 100vh;
     display: flex;
-    color: white;
+    color: #fdfdf1;;
   }
-  
+
   .Form__Aside {
     width: 50%;
-    background-color: #ffffff;
-    
+    background-color: #fdfdf1;;    
   }
   
   .Form__Form {
     width: 50%;
-    background-color: #A5B5BF;;
+    background-color: #B0A1BA;;
     padding: 25px 40px;
     overflow: auto;
   }

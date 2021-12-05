@@ -6,7 +6,6 @@ import {
     Link 
 } from 'react-router-dom'
 import 'react-sticky-header/styles.css';
-import StickyHeader from 'react-sticky-header';
 
 export default class Header extends Component {
 
@@ -14,24 +13,24 @@ export default class Header extends Component {
 
         return (
             <div className = "headerLinks">
-                <img className = "logo" src = "/images/magichat.png" alt =""/>     
 
-                <ul className = "headerLinkList">
-                    <li> <Link to="/"> Home </Link> </li>                        
-                    <li> <Link to="/about"> About </Link> </li>
-                    <li> <Link to="/contact"> Contact </Link> </li>
-<<<<<<< HEAD
-                    <li> <Link to="/profile"> Profile </Link> </li>
-=======
-                    <li> <Link to="/signup"> SignUp </Link> </li>
-                    <li> <Link to="/login"> Login </Link> </li>
-                    <li> <Link to="/matches"> Matches </Link> </li>
-                    <li> <Link to="/prequestionnaire"> Pre-Questionnaire </Link> </li>
->>>>>>> feat/front-end-Sprint5-v1
-                    <li> <Link to="/questionnaire"> Questionnaire </Link> </li>
-                    <li> <Link to="/user"> Temporary User Link</Link></li>
-                </ul>
+                <nav className = "main-nav main-nav-scrolled">
+                    <img className = "logo" src = "/images/magichat.png" alt =""/>     
+
+                    <div className = 'header-links'>
+                        <a href = "/"> Home </a>
+                        <a href = "/about"> About</a>
+                        <a href = "/contact"> Contact </a>
+                        <a href = "/signup"> Sign Up </a>
+                        <a href = "/login"> Login </a>
+                        <a href = "/matches"> Matches </a>
+                        <a href = "/prequestionnaire"> PreQuestionnaire </a>
+                        <a href = "/questionnaire"> Questionnaire </a>
+                        <a href = "/user"> Temp User </a>
+                    </div>
+                </nav>
             </div>    
         )
     }
 } 
+
