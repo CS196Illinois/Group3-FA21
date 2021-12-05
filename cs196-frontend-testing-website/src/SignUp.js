@@ -47,7 +47,9 @@ class SignUp extends Component {
             <div>
                 <div className="Form">
                     <div className="Form__Aside"> 
-                        <img className = "hat" src = "/images/magic-icon-logo.png" alt =""/>     
+                        <div className = "signUp-logo"> 
+                            <img className = "hat" src = "/images/magic-icon-logo.png" alt =""/>   
+                        </div>      
                     </div>
 
                     <div className="Form__Form">

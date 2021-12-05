@@ -6,7 +6,10 @@ export default class About extends Component {
     render() {
 
         return (
-            <h1 className = 'about-title'> About Screen </h1>
+            <div className = 'about-page'>
+                <h1> About Screen </h1>
+                <button className = 'about-test'> test </button>
+            </div>    
         )
     }
 }

@@ -10,42 +10,52 @@ import {
 const db = [
   {
     name: 'Elon Musk',
+    age: '50',
     url: '/images/elonmusk-magic.jpg'
   },
   {
     name: 'Jeff Bezos',
+    age: '59',
     url: '/images/jeffbezos-magic.jpg'
   },
   {
     name: 'Sundar Pichai',
+    age: '49',
     url: '/images/Sundarpichai-magic.png'
   },
   {
     name: 'Tim Cook',
+    age: '69',
     url: '/images/timcook-magic.jpg'
   },
   {
     name: 'Parag Agrawal',
+    age: '37',
     url: '/images/ParagAgrawal2-magic.jpg'
   },
   {
     name: 'Satya Nadella',
+    age: '54',
     url: '/images/satyanadella-magic.jpg'
   },
   {
     name: 'Eric Yuan',
+    age: '51',
     url: '/images/ericyuan-magic.jpg'
   },
   {
     name: 'Bill Gates',
+    age: '66',
     url: '/images/billgates-magic.jpg'
   },
   {
     name: 'Mark Zuckerberg',
+    age: '37',
     url: '/images/markzuckerberg-magic.jpg'
   },
   {
     name: 'Warren Buffet',
+    age: '91',
     url: '/images/warrenbuffet-magic.jpg'
   },
 ]
@@ -103,7 +113,12 @@ function MoveData () {
   }
 
   return (
-    <div>
+    <div className = 'matches-page'>
+      
+      <div className = 'matches-title'>
+        <h1 className = 'title-match'> YOU MATCHED WITH: </h1>
+      </div>
+
       <link
         href='https://fonts.googleapis.com/css?family=Damion&display=swap'
         rel='stylesheet'
@@ -113,10 +128,6 @@ function MoveData () {
         rel='stylesheet'
       />
 
-      <div className = 'matches-title'>
-        <h1> YOU MATCHED WITH: </h1>
-      </div>
-
       <div className = 'cardContainer-parent'>
         <div className='cardContainer'>
           {db.map((character, index) => (
@@ -124,6 +135,7 @@ function MoveData () {
               ref = {childRefs[index]}
               className = 'swipe'
               key = {character.name}
+              key = {character.age}
               onSwipe = {(dir) => swiped(dir, character.name, index)}
               onCardLeftScreen = {() => outOfFrame(character.name, index)}
             >
@@ -131,12 +143,16 @@ function MoveData () {
                 style={{ backgroundImage: 'url(' + character.url + ')' }}
                 className='card'
               >
-                <h3>{character.name}</h3>
-              </div>
+                
+                <Link to = {`/user/${ character.name }`}>
+                  <button className = 'goToProfile' style = {{ backgroundColor: !canSwipe && '#c3c4d3' }}> <b>Go to profile!</b> </button> 
+                </Link>
 
-              <Link to = {`/user/${ character.name }`}>
-                <button className = 'goToProfile' style = {{ backgroundColor: !canSwipe && '#c3c4d3' }}> Go to profile! </button> 
-              </Link>
+                <div> <h3> <b>{character.name}</b> </h3> </div>
+                <div className = 'character-age'> <h3> {character.age} </h3> </div>
+              </div>
+              
+
 
             </TinderCard>
           ))}
