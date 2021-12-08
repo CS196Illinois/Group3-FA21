@@ -45,27 +45,32 @@ class SignUp extends Component {
     render() {
         return (
             <div>
+<<<<<<< HEAD
                 <div className="Form">
                     <div className="Form__Aside"> 
+=======
+                <div className = "Form">
+                    <div className = "Form__Aside"> 
+>>>>>>> feat/front-end-Sprint5-v3
                         <div className = "signUp-logo"> 
                             <img className = "hat" src = "/images/magic-icon-logo.png" alt =""/>   
                         </div>      
                     </div>
 
-                    <div className="Form__Form">
+                    <div className = "Form__Form">
 
-                        <div className="PageSwitcher">
-                            <NavLink to="/login" activeClassName="PageSwitcher__Item--Active" className="PageSwitcher__Item">Sign In</NavLink>
-                            <NavLink exact to="/signup" activeClassName="PageSwitcher__Item--Active" className="PageSwitcher__Item">Sign Up</NavLink>
+                        <div className = "PageSwitcher">
+                            <NavLink to = "/login" activeClassName = "PageSwitcher__Item--Active" className = "PageSwitcher__Item"> Sign In </NavLink>
+                            <NavLink exact to = "/signup" activeClassName = "PageSwitcher__Item--Active" className = "PageSwitcher__Item"> Sign Up </NavLink>
                         </div>
 
-                        <div className="FormTitle">
-                            <NavLink to= "/login" activeClassName="FormTitle__Link--Active" className="FormTitle__Link">Sign In</NavLink> or 
-                            <NavLink exact to="/signup" activeClassName="FormTitle__Link--Active" className="FormTitle__Link">Sign Up</NavLink>
+                        <div className = "FormTitle">
+                            <NavLink to = "/login" activeClassName = "FormTitle__Link--Active" className = "FormTitle__Link"> Sign In </NavLink> or 
+                            <NavLink exact to = "/signup" activeClassName = "FormTitle__Link--Active" className = "FormTitle__Link"> Sign Up </NavLink>
                         </div>
 
-                             <Route exact path="/signup" component = {SignUp}> </Route>
-                            <Route path="/login" component = {Login}> </Route>
+                             <Route exact path = "/signup" component = {SignUp}> </Route>
+                            <Route path = "/login" component = {Login}> </Route>
                     
 
                         <div className = "FormCenter">
