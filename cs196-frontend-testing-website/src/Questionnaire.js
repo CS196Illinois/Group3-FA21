@@ -162,9 +162,8 @@ export default class Questionnaire extends Component {
         if (quizEnd) {
             return (
                 <div className = 'questionnaire-end'>
-                    <h1> post-questionnaire screen </h1>
-                    
                     <div className = 'questionnaire-end1'>
+                        <h1> post-questionnaire screen </h1>
                         <Link to = "/matches">
                             <button className = 'signup-Butt' type = "button"> See Matches </button> 
                         </Link>

@@ -10,16 +10,18 @@ import {
 export default class PreQuestionnaire extends Component {
     render() {
         return (
-            <div className = 'home-Buttons'>
-                <h1> pre-questionnaire screen </h1>
-                <div className = 'signup-home'> 
-                    <Link to = "/questionnaire">
-                        <button className = 'signup-Butt' type = "button">
-                            Go to Questionnaire
-                        </button>
-                    </Link>
+            <div className = 'preQuestionnaire-page'>
+                <div className = 'home-Buttons'>
+                    <div className = 'signup-home'>
+                        <h1> pre-questionnaire screen </h1> 
+                        <Link to = "/questionnaire">
+                            <button className = 'signup-Butt' type = "button">
+                                Go to Questionnaire
+                            </button>
+                        </Link>
+                    </div>
                 </div>
-            </div>
+            </div>    
         )
     }
 }

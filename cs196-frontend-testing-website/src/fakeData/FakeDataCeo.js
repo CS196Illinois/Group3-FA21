@@ -10,42 +10,52 @@ import {
 const db = [
   {
     name: 'Elon Musk',
+    age: '50',
     url: '/images/elonmusk-magic.jpg'
   },
   {
     name: 'Jeff Bezos',
+    age: '59',
     url: '/images/jeffbezos-magic.jpg'
   },
   {
     name: 'Sundar Pichai',
+    age: '49',
     url: '/images/Sundarpichai-magic.png'
   },
   {
     name: 'Tim Cook',
+    age: '69',
     url: '/images/timcook-magic.jpg'
   },
   {
     name: 'Parag Agrawal',
+    age: '37',
     url: '/images/ParagAgrawal2-magic.jpg'
   },
   {
     name: 'Satya Nadella',
+    age: '54',
     url: '/images/satyanadella-magic.jpg'
   },
   {
     name: 'Eric Yuan',
+    age: '51',
     url: '/images/ericyuan-magic.jpg'
   },
   {
     name: 'Bill Gates',
+    age: '66',
     url: '/images/billgates-magic.jpg'
   },
   {
     name: 'Mark Zuckerberg',
+    age: '37',
     url: '/images/markzuckerberg-magic.jpg'
   },
   {
     name: 'Warren Buffet',
+    age: '91',
     url: '/images/warrenbuffet-magic.jpg'
   },
 ]
@@ -53,7 +63,6 @@ const db = [
 function MoveData () {
   const [currentIndex, setCurrentIndex] = useState(db.length - 1)
   const [lastDirection, setLastDirection] = useState()
-  // used for outOfFrame closure
   const currentIndexRef = useRef(currentIndex)
 
   const childRefs = useMemo(
@@ -103,63 +112,66 @@ function MoveData () {
   }
 
   return (
-    <div>
-      <link
-        href='https://fonts.googleapis.com/css?family=Damion&display=swap'
-        rel='stylesheet'
-      />
-      <link
-        href='https://fonts.googleapis.com/css?family=Alatsi&display=swap'
-        rel='stylesheet'
-      />
-
+    <div className = 'matches-page'>
+      
       <div className = 'matches-title'>
-        <h1> YOU MATCHED WITH: </h1>
+        <h1 className = 'title-match'> YOU MATCHED WITH: </h1>
       </div>
 
+      <link
+        href = 'https://fonts.googleapis.com/css?family=Damion&display=swap'
+        rel = 'stylesheet'
+      />
+      <link
+        href = 'https://fonts.googleapis.com/css?family=Alatsi&display=swap'
+        rel= ' stylesheet'
+      />
+
       <div className = 'cardContainer-parent'>
-        <div className='cardContainer'>
+        <div className ='cardContainer'>
           {db.map((character, index) => (
             <TinderCard
               ref = {childRefs[index]}
               className = 'swipe'
               key = {character.name}
+              key = {character.age}
               onSwipe = {(dir) => swiped(dir, character.name, index)}
               onCardLeftScreen = {() => outOfFrame(character.name, index)}
             >
               <div
-                style={{ backgroundImage: 'url(' + character.url + ')' }}
-                className='card'
+                style = {{ backgroundImage: 'url(' + character.url + ')' }}
+                className = 'card'
               >
-                <h3>{character.name}</h3>
+                
+                <Link to = {`/user/${ character.name }`}>
+                  <button className = 'goToProfile' style = {{ backgroundColor: !canSwipe && '#c3c4d3' }}> <b>Go to profile!</b> </button> 
+                </Link>
+
+                <div> <h3> <b>{character.name}</b> </h3> </div>
+                <div className = 'character-age'> <h3> {character.age} </h3> </div>
               </div>
-
-              <Link to = {`/user/${ character.name }`}>
-                <button className = 'goToProfile' style = {{ backgroundColor: !canSwipe && '#c3c4d3' }}> Go to profile! </button> 
-              </Link>
-
+              
             </TinderCard>
           ))}
         </div>
       </div>
 
       <div className='buttons'>
-        <button style={{ backgroundColor: !canSwipe && '#c3c4d3' }} onClick={() => swipe('left')}>Swipe left!</button>
-        <button style={{ backgroundColor: !canSwipe && '#c3c4d3' }} onClick={() => swipe('right')}>Swipe right!</button>
-        <button style={{ backgroundColor: !canGoBack && '#c3c4d3' }} onClick={() => goBack()}> Undo swipe (testing) </button>
+        <button style = {{ backgroundColor: !canSwipe && '#c3c4d3' }} onClick = {() => swipe('left')}> Swipe left! </button>
+        <button style = {{ backgroundColor: !canSwipe && '#c3c4d3' }} onClick = {() => swipe('right')}> Swipe right! </button>
+        <button style = {{ backgroundColor: !canGoBack && '#c3c4d3' }} onClick = {() => goBack()}> Undo swipe (testing) </button>
       </div>
 
       {lastDirection ? (
-        <h2 key={lastDirection} className='infoText'>
+        <h2 key = {lastDirection} className = 'infoText'>
           You swiped {lastDirection}
         </h2>
       ) : (
-        <h2 className='infoText'>
+        <h2 className = 'infoText'>
           Swipe a card right or press a button !
         </h2>
       )}
     </div>
   )
 }
-
 export default MoveData
