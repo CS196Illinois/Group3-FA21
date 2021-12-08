@@ -40,11 +40,7 @@ class CoolHeader extends React.Component {
   render() {
     return (
       <div className = "top-preview">
-<<<<<<< HEAD
-        <header className = "cool-header" ref={divElement => (this.divElement = divElement)}>
-=======
         <header className = "cool-header" ref = {divElement => (this.divElement = divElement)}>
->>>>>>> feat/front-end-Sprint5-v3
           <h1> Welcome to Magic </h1>
           <p>
             Cool Marketing Paragraph

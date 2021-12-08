@@ -63,7 +63,6 @@ const db = [
 function MoveData () {
   const [currentIndex, setCurrentIndex] = useState(db.length - 1)
   const [lastDirection, setLastDirection] = useState()
-  // used for outOfFrame closure
   const currentIndexRef = useRef(currentIndex)
 
   const childRefs = useMemo(
@@ -120,16 +119,16 @@ function MoveData () {
       </div>
 
       <link
-        href='https://fonts.googleapis.com/css?family=Damion&display=swap'
-        rel='stylesheet'
+        href = 'https://fonts.googleapis.com/css?family=Damion&display=swap'
+        rel = 'stylesheet'
       />
       <link
-        href='https://fonts.googleapis.com/css?family=Alatsi&display=swap'
-        rel='stylesheet'
+        href = 'https://fonts.googleapis.com/css?family=Alatsi&display=swap'
+        rel= ' stylesheet'
       />
 
       <div className = 'cardContainer-parent'>
-        <div className='cardContainer'>
+        <div className ='cardContainer'>
           {db.map((character, index) => (
             <TinderCard
               ref = {childRefs[index]}
@@ -140,42 +139,48 @@ function MoveData () {
               onCardLeftScreen = {() => outOfFrame(character.name, index)}
             >
               <div
-                style={{ backgroundImage: 'url(' + character.url + ')' }}
-                className='card'
+                style = {{ backgroundImage: 'url(' + character.url + ')' }}
+                className = 'card'
               >
                 
                 <Link to = {`/user/${ character.name }`}>
                   <button className = 'goToProfile' style = {{ backgroundColor: !canSwipe && '#c3c4d3' }}> <b>Go to profile!</b> </button> 
                 </Link>
+<<<<<<< HEAD
 
                 <div> <h3> <b>{character.name}</b> </h3> </div>
                 <div className = 'character-age'> <h3> {character.age} </h3> </div>
               </div>
               
 
+=======
+>>>>>>> feat/front-end-Sprint5-v3
 
+                <div> <h3> <b>{character.name}</b> </h3> </div>
+                <div className = 'character-age'> <h3> {character.age} </h3> </div>
+              </div>
+              
             </TinderCard>
           ))}
         </div>
       </div>
 
       <div className='buttons'>
-        <button style={{ backgroundColor: !canSwipe && '#c3c4d3' }} onClick={() => swipe('left')}>Swipe left!</button>
-        <button style={{ backgroundColor: !canSwipe && '#c3c4d3' }} onClick={() => swipe('right')}>Swipe right!</button>
-        <button style={{ backgroundColor: !canGoBack && '#c3c4d3' }} onClick={() => goBack()}> Undo swipe (testing) </button>
+        <button style = {{ backgroundColor: !canSwipe && '#c3c4d3' }} onClick = {() => swipe('left')}> Swipe left! </button>
+        <button style = {{ backgroundColor: !canSwipe && '#c3c4d3' }} onClick = {() => swipe('right')}> Swipe right! </button>
+        <button style = {{ backgroundColor: !canGoBack && '#c3c4d3' }} onClick = {() => goBack()}> Undo swipe (testing) </button>
       </div>
 
       {lastDirection ? (
-        <h2 key={lastDirection} className='infoText'>
+        <h2 key = {lastDirection} className = 'infoText'>
           You swiped {lastDirection}
         </h2>
       ) : (
-        <h2 className='infoText'>
+        <h2 className = 'infoText'>
           Swipe a card right or press a button !
         </h2>
       )}
     </div>
   )
 }
-
 export default MoveData
