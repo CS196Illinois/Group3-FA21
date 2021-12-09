@@ -129,9 +129,9 @@ def login(email: Optional[str] = None, password: Optional[str] = None):
     """
     if email is not None and password is not None:
         # both need to be defined
-        result = db.validate_user(email, password)
-        if result[0] == True:
-            return result[1] # the user object itself
+        userobj = db.get_user(email = email)
+        if userobj == True:
+            return userobj # the user object itself
         else:
             return False
     else:
