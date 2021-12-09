@@ -112,3 +112,19 @@ def rank():
     Runs the ranking function against all users in the database and outputs whether it was successful.
     """
     return db.run_ranker()
+
+
+@app.post('/api/v1/login', tags=['Login'])
+def login(email: Optional[str] = None, password: Optional[str] = None):
+    """
+    Login function
+    """
+    if email is not None and password is not None:
+        # both need to be defined
+        result = db.validate_user(email, password)
+        if result[0] == True:
+            return result[1] # the user object itself
+        else:
+            return False
+    else:
+        return False
