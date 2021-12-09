@@ -21,6 +21,14 @@ tg = [
     {
         "name": "Ranking",
         "description": "Routes related to rankings"
+    },
+    {
+        "Login": "Login Endpoint",
+        "description": "A single postable route to allow logins"
+    },
+    {
+        "Register": "Registration Routes",
+        "description": "A single postable route to allow registration of new users"
     }
 ]
 description = "The backend API for the Magic personality based friend finder application"
@@ -129,7 +137,7 @@ def login(email: Optional[str] = None, password: Optional[str] = None):
     else:
         return False
 
-@app.post('/api/v1/signup', tags=['Login'])
+@app.post('/api/v1/signup', tags=['Register'])
 def signup(email: Optional[str] = None, password: Optional[str] = None, username: Optional[str] = None):
     """
     Signup function
