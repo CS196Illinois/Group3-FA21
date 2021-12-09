@@ -2,7 +2,7 @@ from typing import Optional
 from fastapi import FastAPI
 from pydantic import BaseModel
 import db
-
+import uuid
 
 tg = [
     {
@@ -144,11 +144,11 @@ def signup(email: Optional[str] = None, password: Optional[str] = None, username
     """
     if email is not None and password is not None and username is not None:
         # all are defined
-        result = db.add_user(email, password)
-        if result[0] == True:
-            # means that there are no underlying conflicts in the database
-            return result[1] # the user object itself
-        else:
-            return False
+        usrx = User()
+        usrx.user_id = str(uuid.uuid4())
+        usrx.email = email
+        usrx.username = username
+        usrx.password = password
+        return db.add_user(usrx)
     else:
         return False

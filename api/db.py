@@ -67,15 +67,18 @@ def get_user(user_id = None, username = None, email = None):
 
     Return the user object.
     """
-    createConnection()
-    global mydb
-    cursor = mydb.cursor()
-    query = "SELECT * FROM users WHERE user_id = %s OR email = %s OR username = %s"
-    cursor.execute(query, (user_id, email, username))
-    user_row = cursor.fetchall()
-    user_object = User(user_row[0][0], user_row[0][1], user_row[0][2], user_row[0][3], user_row[0][4], user_row[0][5], user_row[0][6], user_row[0][7], user_row[0][8], user_row[0][9], user_row[0][10])
+    try:
+        createConnection()
+        global mydb
+        cursor = mydb.cursor()
+        query = "SELECT * FROM users WHERE user_id = %s OR email = %s OR username = %s"
+        cursor.execute(query, (user_id, email, username))
+        user_row = cursor.fetchall()
+        user_object = User(user_row[0][0], user_row[0][1], user_row[0][2], user_row[0][3], user_row[0][4], user_row[0][5], user_row[0][6], user_row[0][7], user_row[0][8], user_row[0][9], user_row[0][10])
 
-    return user_object
+        return user_object
+    except:
+        return None
 
 
 def update_user(user, user_id = None, username = None, email = None):
