@@ -128,3 +128,19 @@ def login(email: Optional[str] = None, password: Optional[str] = None):
             return False
     else:
         return False
+
+@app.post('/api/v1/signup', tags=['Login'])
+def signup(email: Optional[str] = None, password: Optional[str] = None, username: Optional[str] = None):
+    """
+    Signup function
+    """
+    if email is not None and password is not None and username is not None:
+        # all are defined
+        result = db.add_user(email, password)
+        if result[0] == True:
+            # means that there are no underlying conflicts in the database
+            return result[1] # the user object itself
+        else:
+            return False
+    else:
+        return False
