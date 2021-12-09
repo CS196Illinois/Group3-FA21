@@ -6,6 +6,10 @@ CREATE TABLE `users` (
   `dob` date NOT NULL,
   `last_active` datetime NOT NULL,
   `last_updated` datetime NOT NULL,
+  `hobbies` varchar(255) NOT NULL,
+  `bio` varchar(255) NOT NULL,
+  `age` int NOT NULL,
+  'location' varchar(40) NOT NULL
   PRIMARY KEY (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
 
@@ -27,13 +31,13 @@ CREATE TABLE `question_text` (
   `dimension_name` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
 
-CREATE TABLE `matches` ('df
- `user_id1' int NOT NULL,
+CREATE TABLE `matches` (
+ `user_id1` int NOT NULL,
  `user_id2` int NOT NULL,
  `distance` double(9, 8) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
 
-CREATE_TABLE `dimensions` (
-  `dimension_id`: tinyint(1) NOT NULL,
-  `dimension_name`: varchar(22) NOT NULL,
+CREATE TABLE `dimensions` (
+  `dimension_id` tinyint(1) NOT NULL,
+  `dimension_name` varchar(22) NOT NULL
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;

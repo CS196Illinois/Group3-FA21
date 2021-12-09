@@ -3,7 +3,7 @@ import numpy as np
 import match as m
 
 class User:
-    def __init__(self, user_id, username, password, email, dob, last_active, last_updated):
+    def __init__(self, user_id, username, password, email, dob, last_active, last_updated, hobbies, bio, age, location):
         self.user_id = user_id
         self.username = username
         self.password = password
@@ -11,6 +11,10 @@ class User:
         self.dob = dob
         self.last_active = last_active
         self.last_updated = last_updated
+        self.hobbies = hobbies
+        self.bio = bio
+        self.age = age
+        self.location = location
 
 class Question:
     def __init__(self, question_id, question_text, dimension_id):
@@ -32,10 +36,7 @@ mydb = None
 def createConnection():
     global mydb
     mydb = mysql.connector.connect(
-        host = "localhost",
-        user = "root",
-        passwd = "password",
-        database = "CS196db"
+        
     )
     print(mydb)
 
@@ -55,7 +56,7 @@ def get_users():
     user_rows = cursor.fetchall()
     user_list = []
     for row in user_rows:
-        user_list.append(User(row[0], row[1], row[2], row[3], row[4], row[5], row[6]))
+        user_list.append(User(row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7], row[8], row[9], row[10]))
 
     return user_list
 
@@ -72,7 +73,7 @@ def get_user(user_id = None, username = None, email = None):
     query = "SELECT * FROM users WHERE user_id = %s OR email = %s OR username = %s"
     cursor.execute(query, (user_id, email, username))
     user_row = cursor.fetchall()
-    user_object = User(user_row[0][0], user_row[0][1], user_row[0][2], user_row[0][3], user_row[0][4], user_row[0][5], user_row[0][6])
+    user_object = User(user_row[0][0], user_row[0][1], user_row[0][2], user_row[0][3], user_row[0][4], user_row[0][5], user_row[0][6], user_row[0][7], user_row[0][8], user_row[0][9], user_row[0][10])
 
     return user_object
 
@@ -86,10 +87,10 @@ def update_user(user, user_id = None, username = None, email = None):
     createConnection()
     global mydb
     cursor = mydb.cursor()
-    query = "UPDATE users SET user_id = %s, username = %s, password = %s, email = %s, dob = %s, last_active = %s, last_updated = %s WHERE user_id = %s OR username = %s OR email = %s"
+    query = "UPDATE users SET user_id = %s, username = %s, password = %s, email = %s, dob = %s, last_active = %s, last_updated = %s , hobbies = %s, bio = %s, age = %s, location = %s WHERE user_id = %s OR username = %s OR email = %s"
 
     try:
-        cursor.execute(query, (user.user_id, user.username, user.password, user.email, user.dob, user.last_active, user.last_updated, user_id, username, email))
+        cursor.execute(query, (user.user_id, user.username, user.password, user.email, user.dob, user.last_active, user.last_updated, user.hobbies, user.bio, user.age, user.location, user_id, username, email))
     except Exception as e:
         print('Error: ', e)
         return False
@@ -128,9 +129,9 @@ def add_user(user):
     createConnection()
     global mydb
     cursor = mydb.cursor()
-    query = "INSERT INTO users (user_id, username, password, email, dob, last_active, last_updated) VALUES (%s, %s, %s, %s, %s, %s, %s)"
+    query = "INSERT INTO users (user_id, username, password, email, dob, last_active, last_updated, hobbies, bio, age, location) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
     try:
-        cursor.execute(query, (user.user_id, user.username, user.password, user.email, user.dob, user.last_active, user.last_updated))
+        cursor.execute(query, (user.user_id, user.username, user.password, user.email, user.dob, user.last_active, user.last_updated, user.hobbies, user.bio, user.age, user.location))
     except Exception as e:
         print("Error, ", e)
         return False
@@ -165,7 +166,7 @@ def add_questions(question):
     createConnection()
     global mydb
     cursor = mydb.cursor()
-    query = "INSERT INTO question_text (question_id, question, dimension_id) VALUES (%s, %s, %s)"
+    query = "INSERT INTO question_text (question_id, question_text, dimension_id) VALUES (%s, %s, %s)"
     try:
         cursor.execute(query, (question.question_id, question.question_text, question.dimension_id))
     except Exception as e:
@@ -215,6 +216,7 @@ def get_results():
 
     return result_list
 
+
 def get_result(user_id = None):
     """
     Connect to SQL server and return the user result. user_id will be passed in.
@@ -230,7 +232,6 @@ def get_result(user_id = None):
     result_object = Results(result_row[0][0], result_row[0][1], result_row[0][2], result_row[0][3], result_row[0][4], result_row[0][5])
 
     return result_object
-
 
 
 def add_result(results):
@@ -288,5 +289,3 @@ def run_ranker():
                 
     mydb.commit()
     return True
-
-
